@@ -1,0 +1,81 @@
+{
+  "engine": "ray",
+  "train": {
+    "raw_episodes_read": 1000,
+    "raw_by_policy": {
+      "scripted": 750,
+      "noisy": 150,
+      "random": 100
+    },
+    "injected_faults": {
+      "nan": 11,
+      "truncate": 9
+    },
+    "rejected_by_reason": {
+      "non_finite": 11,
+      "truncated": 9
+    },
+    "valid_episodes": 980,
+    "valid_retry_copies_injected": 148,
+    "exact_duplicates": 144,
+    "near_duplicates_removed": 156,
+    "near_duplicates_removed_frac": 0.15918367346938775,
+    "dedup_by_policy": {
+      "scripted": 581,
+      "noisy": 146,
+      "random": 97
+    },
+    "near_dup_removed_by_policy": {
+      "noisy": 0,
+      "random": 0,
+      "scripted": 156
+    },
+    "balanced_per_policy": 97,
+    "hash_params": {
+      "quantum_m": 0.02,
+      "stride_steps": 10,
+      "dims": "fingertip xyz + object xy"
+    },
+    "datasets": {
+      "raw": {
+        "episodes": 980,
+        "transitions": 98000
+      },
+      "dedup": {
+        "episodes": 824,
+        "transitions": 82400
+      },
+      "balanced": {
+        "episodes": 291,
+        "transitions": 29100
+      },
+      "dedup_matched": {
+        "episodes": 291,
+        "transitions": 29100
+      }
+    }
+  },
+  "eval_id": {
+    "raw_episodes_read": 150,
+    "rejected_by_reason": {},
+    "by_policy": {
+      "noisy": 50,
+      "random": 50,
+      "scripted": 50
+    },
+    "episodes": 150,
+    "transitions": 15000
+  },
+  "eval_ood": {
+    "raw_episodes_read": 150,
+    "rejected_by_reason": {},
+    "by_policy": {
+      "noisy": 50,
+      "random": 50,
+      "scripted": 50
+    },
+    "episodes": 150,
+    "transitions": 15000
+  },
+  "wall_time_s": 47.15548797900556
+}

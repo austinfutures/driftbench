@@ -1,0 +1,107 @@
+{
+  "scale": 1.0,
+  "train": {
+    "variant": "nominal",
+    "physics": {
+      "mass_scale": 1.0,
+      "friction_scale": 1.0
+    },
+    "episodes": 1000,
+    "retry_copies_injected": 150,
+    "faults_injected": {
+      "none": 980,
+      "nan": 11,
+      "truncate": 9
+    },
+    "by_policy": {
+      "noisy": {
+        "episodes": 150,
+        "mean_init_obj_goal_dist_m": 0.24786822497844696,
+        "mean_final_obj_goal_dist_m": 0.2492843121290207,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      },
+      "random": {
+        "episodes": 100,
+        "mean_init_obj_goal_dist_m": 0.23634126782417297,
+        "mean_final_obj_goal_dist_m": 0.23633521795272827,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      },
+      "scripted": {
+        "episodes": 750,
+        "mean_init_obj_goal_dist_m": 0.2388116866350174,
+        "mean_final_obj_goal_dist_m": 0.25397154688835144,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      }
+    },
+    "wall_time_s": 4.254692811984569,
+    "workers": 4
+  },
+  "eval_id": {
+    "variant": "nominal",
+    "physics": {
+      "mass_scale": 1.0,
+      "friction_scale": 1.0
+    },
+    "episodes": 150,
+    "retry_copies_injected": 0,
+    "faults_injected": {
+      "none": 150
+    },
+    "by_policy": {
+      "noisy": {
+        "episodes": 50,
+        "mean_init_obj_goal_dist_m": 0.2471626102924347,
+        "mean_final_obj_goal_dist_m": 0.25437402725219727,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      },
+      "random": {
+        "episodes": 50,
+        "mean_init_obj_goal_dist_m": 0.24519607424736023,
+        "mean_final_obj_goal_dist_m": 0.24518856406211853,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      },
+      "scripted": {
+        "episodes": 50,
+        "mean_init_obj_goal_dist_m": 0.24582284688949585,
+        "mean_final_obj_goal_dist_m": 0.25665482878685,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      }
+    },
+    "wall_time_s": 1.0894369950401597,
+    "workers": 4
+  },
+  "eval_ood": {
+    "variant": "heavy_slippery",
+    "physics": {
+      "mass_scale": 4.0,
+      "friction_scale": 0.25
+    },
+    "episodes": 150,
+    "retry_copies_injected": 0,
+    "faults_injected": {
+      "none": 150
+    },
+    "by_policy": {
+      "noisy": {
+        "episodes": 50,
+        "mean_init_obj_goal_dist_m": 0.23504646122455597,
+        "mean_final_obj_goal_dist_m": 0.24057292938232422,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      },
+      "random": {
+        "episodes": 50,
+        "mean_init_obj_goal_dist_m": 0.23772138357162476,
+        "mean_final_obj_goal_dist_m": 0.23772138357162476,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      },
+      "scripted": {
+        "episodes": 50,
+        "mean_init_obj_goal_dist_m": 0.24900804460048676,
+        "mean_final_obj_goal_dist_m": 0.2629634737968445,
+        "success_rate_final_dist_lt_0.05m": 0.0
+      }
+    },
+    "wall_time_s": 1.0748449299717322,
+    "workers": 4
+  }
+}

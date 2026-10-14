@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 200" width="960" height="200" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="960" height="200" rx="12" fill="#ffffff"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6472"/>
+    </marker>
+  </defs>
+  <g font-size="14" text-anchor="middle">
+    <!-- boxes -->
+    <rect x="20"  y="40" width="160" height="110" rx="10" fill="#eef3fb" stroke="#2f6db5" stroke-width="1.5"/>
+    <rect x="210" y="40" width="160" height="110" rx="10" fill="#eef8f3" stroke="#2a9d6f" stroke-width="1.5"/>
+    <rect x="400" y="40" width="160" height="110" rx="10" fill="#f4effb" stroke="#8a5cc2" stroke-width="1.5"/>
+    <rect x="590" y="40" width="160" height="110" rx="10" fill="#fdf1ea" stroke="#d9622b" stroke-width="1.5"/>
+    <rect x="780" y="40" width="160" height="110" rx="10" fill="#f3f4f6" stroke="#5b6472" stroke-width="1.5"/>
+    <!-- titles -->
+    <g font-weight="600" fill="#1f2937">
+      <text x="100" y="68">Simulate</text>
+      <text x="290" y="68">Data pipeline</text>
+      <text x="480" y="68">World model</text>
+      <text x="670" y="68">Drift eval</text>
+      <text x="860" y="68">Report</text>
+    </g>
+    <!-- details -->
+    <g font-size="12" fill="#4b5563">
+      <text x="100" y="92">MuJoCo Pusher-v5</text>
+      <text x="100" y="110">3 behaviour policies</text>
+      <text x="100" y="128">+ OOD physics</text>
+      <text x="290" y="92">Ray Data</text>
+      <text x="290" y="110">validate · dedup</text>
+      <text x="290" y="128">balance · Parquet</text>
+      <text x="480" y="92">PyTorch ensemble</text>
+      <text x="480" y="110">5 MLPs, Δ-state</text>
+      <text x="480" y="128">1-step / multi-step loss</text>
+      <text x="670" y="92">open loop, h = 1…50</text>
+      <text x="670" y="110">divergence horizon</text>
+      <text x="670" y="128">disagreement vs error</text>
+      <text x="860" y="92">RESULTS.md</text>
+      <text x="860" y="110">plots · profile</text>
+      <text x="860" y="128">from real runs</text>
+    </g>
+  </g>
+  <!-- arrows -->
+  <g stroke="#5b6472" stroke-width="1.5" marker-end="url(#arrow)">
+    <line x1="182" y1="95" x2="206" y2="95"/>
+    <line x1="372" y1="95" x2="396" y2="95"/>
+    <line x1="562" y1="95" x2="586" y2="95"/>
+    <line x1="752" y1="95" x2="776" y2="95"/>
+  </g>
+  <text x="480" y="182" font-size="12" fill="#6b7280" text-anchor="middle">Mitigations tested: multi-step rollout loss · deduplicated / balanced data · out-of-distribution physics</text>
+</svg>

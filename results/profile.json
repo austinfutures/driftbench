@@ -1,0 +1,49 @@
+{
+  "environment": {
+    "timestamp": "2026-10-13T22:16:01",
+    "python": "3.10.12",
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "cpu": "x86_64",
+    "cpu_count": 12,
+    "torch_threads": 6,
+    "torch": "2.14.1+cpu",
+    "mujoco": "3.15.0",
+    "gymnasium": "1.4.0",
+    "ray": "2.59.0",
+    "device": "cpu",
+    "device_type": "CPU",
+    "gpu_name": null
+  },
+  "config": {
+    "data": "dedup",
+    "steps": 200,
+    "warmup": 20,
+    "profile_steps": 20,
+    "batch_size": 256,
+    "ensemble_size": 5,
+    "hidden": 200,
+    "compile": false,
+    "device": "auto"
+  },
+  "n_transitions": 82400,
+  "variants": {
+    "dataloader": {
+      "steps_timed": 200,
+      "step_ms_median": 10.94433048274368,
+      "step_ms_p90": 13.740947627229616,
+      "data_ms_median": 2.295933023560792,
+      "compute_ms_median": 8.361898508155718,
+      "data_frac_of_step": 0.21307337295522877,
+      "speedup_vs_dataloader": 1.0
+    },
+    "vectorized": {
+      "steps_timed": 200,
+      "step_ms_median": 9.114527987549081,
+      "step_ms_p90": 10.724965599365532,
+      "data_ms_median": 0.4052314907312393,
+      "compute_ms_median": 8.686927001690492,
+      "data_frac_of_step": 0.043824425569351406,
+      "speedup_vs_dataloader": 1.200756692797938
+    }
+  }
+}

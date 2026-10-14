@@ -1,0 +1,35 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+enumerate(DataLoader)#_SingleProcessDataLoaderIter._...        24.62%      62.230ms        28.30%      71.510ms       3.575ms            20  
+                                              aten::bmm        20.89%      52.800ms        20.91%      52.838ms     377.417us           140  
+                                          aten::baddbmm        11.67%      29.496ms        13.14%      33.209ms     415.116us            80  
+                                                compute         6.60%      16.684ms        70.20%     177.395ms       8.870ms            20  
+                              Optimizer.step#AdamW.step         4.68%      11.823ms        13.62%      34.425ms       1.721ms            20  
+                                    aten::silu_backward         3.13%       7.917ms         3.13%       7.917ms     131.953us            60  
+                                             aten::silu         2.82%       7.124ms         2.82%       7.124ms     118.738us            60  
+                                             aten::mul_         1.96%       4.942ms         2.36%       5.961ms      18.629us           320  
+                                            aten::copy_         1.89%       4.764ms         1.89%       4.764ms       4.671us          1020  
+                                              aten::cat         1.80%       4.554ms         1.95%       4.929ms      49.289us           100  
+                                              aten::div         1.79%       4.530ms         2.09%       5.292ms      17.641us           300  
+                                       aten::lift_fresh         1.46%       3.701ms         1.46%       3.701ms       0.241us         15360  
+                                            aten::lerp_         1.45%       3.672ms         1.45%       3.672ms      22.952us           160  
+                                             aten::sqrt         1.00%       2.517ms         1.00%       2.517ms      15.730us           160  
+                                              aten::sum         1.00%       2.515ms         1.08%       2.735ms      27.354us           100  
+                                         aten::addcdiv_         0.97%       2.440ms         0.97%       2.440ms      15.251us           160  
+                                               aten::to         0.93%       2.356ms         2.16%       5.452ms       0.332us         16400  
+                                 aten::_index_put_impl_         0.93%       2.354ms         0.95%       2.408ms     120.418us            20  
+                                                   data         0.84%       2.133ms        29.80%      75.314ms       3.766ms            20  
+                                             aten::add_         0.70%       1.780ms         1.26%       3.189ms       9.966us           320  
+                                            aten::index         0.66%       1.663ms         0.76%       1.914ms      23.929us            80  
+                    Optimizer.zero_grad#AdamW.zero_grad         0.59%       1.503ms         0.59%       1.503ms      75.152us            20  
+                                         aten::_to_copy         0.53%       1.328ms         1.23%       3.096ms       3.440us           900  
+                                         aten::addcmul_         0.52%       1.313ms         0.52%       1.313ms       8.205us           160  
+                                              aten::sub         0.48%       1.221ms         0.48%       1.221ms      20.350us            60  
+                                              aten::mul         0.45%       1.141ms         0.47%       1.194ms      14.929us            80  
+                                     aten::index_select         0.40%       1.015ms         0.44%       1.112ms      55.616us            20  
+autograd::engine::evaluate_function: BaddbmmBackward...         0.39%     985.505us        22.68%      57.316ms     716.450us            80  
+                                    aten::empty_strided         0.38%     963.426us         0.38%     963.426us       1.047us           920  
+                                            aten::stack         0.33%     843.882us         1.92%       4.853ms      60.667us            80  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 252.709ms
