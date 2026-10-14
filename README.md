@@ -54,12 +54,12 @@ Every module takes `--help`. Experiment runs are cached, so if a long run is int
 ## What each stage does
 
 ### 1. Simulation (MuJoCo, `collect.py`)
-Gymnasium's `Pusher-v5`: a 7-DoF arm pushing a cylinder toward a goal. Observations are 23-D (joint positions and velocities, fingertip, object, goal); episodes are 100 steps. Three behaviour policies give the dataset a diversity axis:
+Gymnasium's `Pusher-v5`: a 7-DoF arm pushing a cylinder toward a goal. Observations are 23-D (joint positions and velocities, fingertip, object, goal); episodes are 100 steps. Three behavior policies give the dataset a diversity axis:
 
-| policy | behaviour |
+| policy | behavior |
 |---|---|
 | `scripted` | Jacobian-transpose controller: get behind the object, push toward the goal. Deterministic given the start state. |
-| `noisy` | Same controller with randomised gains, Gaussian torque noise and 15% random actions. |
+| `noisy` | Same controller with randomized gains, Gaussian torque noise and 15% random actions. |
 | `random` | Uniform random torques. |
 
 The train split is deliberately imbalanced (mostly scripted), like real logged robot data. Held-out eval sets have equal counts per policy, with separate seeds. The **OOD** eval set uses a modified physics variant: object 4× heavier, 0.25× sliding friction.
@@ -81,7 +81,7 @@ Near-duplicate detection hashes a quantized (2 cm bins), temporally downsampled 
 | `dedup_matched` | dedup, random subsample the **same size** as `balanced` (control) |
 
 ### 3. World model (PyTorch, `model.py`, `train.py`)
-Ensemble of 5 MLPs (3×200, SiLU) predicting normalised next-state deltas from (state, action). The ensemble is one batched matmul per layer, not 5 Python calls. Each member trains on its own bootstrap resample of episodes. Dimensions that do not move (the goal, the object's height) are predicted as unchanged and excluded from losses and metrics.
+Ensemble of 5 MLPs (3×200, SiLU) predicting normalized next-state deltas from (state, action). The ensemble is one batched matmul per layer, not 5 Python calls. Each member trains on its own bootstrap resample of episodes. Dimensions that do not move (the goal, the object's height) are predicted as unchanged and excluded from losses and metrics.
 
 Loss for training horizon H (H=1 is ordinary teacher-forced delta MSE):
 
@@ -92,8 +92,8 @@ From 4 random start states per held-out episode, each ensemble member rolls out 
 
 - **nRMSE vs. horizon**: ensemble-mean error in units of training-set state std. 1.0 ≈ "no better than predicting the dataset mean."
 - **Divergence horizon**: first step where mean nRMSE > 1.0 (configurable with `--threshold`).
-- **Copy baseline**: predict the start state forever. A model that loses to this isn't modelling the dynamics.
-- **Object position error** in centimetres, the quantity a pushing planner cares about.
+- **Copy baseline**: predict the start state forever. A model that loses to this isn't modeling the dynamics.
+- **Object position error** in centimeters, the quantity a pushing planner cares about.
 - **Does ensemble disagreement predict actual error?** Spearman correlation and AUROC, reported both pooled and **within each horizon**. Disagreement and error both grow with h, so the pooled number is inflated by horizon alone; the within-horizon number is the real test of "does the model know when to stop trusting itself."
 
 ### 5. Mitigation experiments (`experiments.py`)
@@ -107,7 +107,7 @@ Each runs for 3 seeds by default:
 | all models on `eval_ood` | How much faster does drift happen under unseen physics, and does disagreement rise to flag it? |
 
 ### 6. Performance pass (`profile_train.py`)
-Compares a textbook `Dataset`/`DataLoader` training step against the vectorised on-device sampler that `train.py` uses (and optionally `torch.compile`). Data and compute time are measured separately, and a `torch.profiler` table plus Chrome trace are saved to `results/profile/`. The report states whatever the profiler finds to be the bottleneck rather than assuming it.
+Compares a textbook `Dataset`/`DataLoader` training step against the vectorized on-device sampler that `train.py` uses (and optionally `torch.compile`). Data and compute time are measured separately, and a `torch.profiler` table plus Chrome trace are saved to `results/profile/`. The report states whatever the profiler finds to be the bottleneck rather than assuming it.
 
 ## Repo layout
 
@@ -117,9 +117,9 @@ driftbench/
   policies.py       random / scripted / noisy controllers, OOD physics patch
   collect.py        stage 1: parallel episode collection -> Parquet
   pipeline.py       stage 2: Ray Data validate/dedup/balance (+ local pandas engine)
-  data.py           load Parquet -> arrays, normalisation stats
+  data.py           load Parquet -> arrays, normalization stats
   model.py          batched ensemble MLP dynamics model
-  train.py          vectorised window sampler, 1-step / multi-step loss
+  train.py          vectorized window sampler, 1-step / multi-step loss
   evaluate.py       open-loop rollouts, drift + uncertainty metrics
   experiments.py    stage 3: experiment grid, cached per run
   profile_train.py  stage 4: profiling

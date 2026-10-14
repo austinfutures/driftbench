@@ -3,11 +3,11 @@
 Loss (identical formula for every horizon H):
     L = 1/H * sum_{k=1..H} mean( ((s_hat_k - s_k) / sigma_delta)^2 )   over dynamic dims
 where s_hat_k is produced by feeding the model its OWN previous prediction.
-For H=1 this reduces exactly to normalised next-state-delta MSE, the standard
+For H=1 this reduces exactly to normalized next-state-delta MSE, the standard
 teacher-forced objective. For H>1 gradients flow through the rollout, so the
 model is penalised for errors that compound.
 
-Data sampling is fully vectorised: episodes live as one tensor on the target
+Data sampling is fully vectorized: episodes live as one tensor on the target
 device and each step draws (episode, t) indices with torch.randint. Each
 ensemble member draws from its own bootstrap resample of the episodes.
 """
@@ -88,7 +88,7 @@ def rollout_loss(model: EnsembleDynamics, s_seq: torch.Tensor, a_seq: torch.Tens
 
 @torch.no_grad()
 def one_step_nmse(model: EnsembleDynamics, es: EpisodeSet, device, chunk: int = 8192) -> float:
-    """Ensemble-mean 1-step error in normalised-delta units (teacher forced)."""
+    """Ensemble-mean 1-step error in normalized-delta units (teacher forced)."""
     E = model.ensemble_size
     idx = model.dyn_idx
     S = torch.as_tensor(es.obs, device=device)

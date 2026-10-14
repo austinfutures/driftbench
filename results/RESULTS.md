@@ -30,7 +30,7 @@ Engine: `ray`. Pipeline wall time: 47.2 s.
 | eval_id | 150 | 15000 |
 | eval_ood | 150 | 15000 |
 
-Behaviour policies (train split, from collection):
+Behavior policies (train split, from collection):
 
 | Policy | Episodes | mean final object-goal distance (m) | success rate (< 5 cm) |
 |---|---|---|---|

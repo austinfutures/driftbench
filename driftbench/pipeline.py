@@ -282,7 +282,7 @@ def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--engine", choices=["ray", "local"], default="ray")
     p.add_argument("--num-cpus", type=int, default=None)
-    p.add_argument("--quantum", type=float, default=0.02, help="position bin size in metres for near-dup hashing")
+    p.add_argument("--quantum", type=float, default=0.02, help="position bin size in meters for near-dup hashing")
     p.add_argument("--stride", type=int, default=10, help="hash every Nth timestep")
     p.add_argument("--shards", type=int, default=8)
     p.add_argument("--seed", type=int, default=0)

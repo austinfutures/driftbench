@@ -1,4 +1,4 @@
-"""Load processed episodes into dense arrays and compute normalisation stats."""
+"""Load processed episodes into dense arrays and compute normalization stats."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -11,7 +11,7 @@ from .config import ACT_DIM, EP_LEN, OBS_DIM, PROCESSED_DIR
 # A state dimension counts as "dynamic" (modelled and scored) only if it varies
 # meaningfully across the dataset. Pusher's goal position is fixed and the
 # object's height barely moves; predicting those as unchanged is exact enough
-# and keeps tiny-variance dims from dominating normalised errors.
+# and keeps tiny-variance dims from dominating normalized errors.
 MIN_STATE_STD = 1e-3
 MIN_DELTA_STD = 1e-6
 

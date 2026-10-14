@@ -309,7 +309,7 @@ def data_section(ds, cs):
         if split in ds:
             lines.append(f"| {split} | {ds[split]['episodes']} | {ds[split]['transitions']} |")
     if cs:
-        lines += ["", "Behaviour policies (train split, from collection):", "",
+        lines += ["", "Behavior policies (train split, from collection):", "",
                   "| Policy | Episodes | mean final object-goal distance (m) | success rate (< 5 cm) |", "|---|---|---|---|"]
         for pol, s in cs.get("train", {}).get("by_policy", {}).items():
             succ = next((v for k, v in s.items() if k.startswith("success_rate")), None)

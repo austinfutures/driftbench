@@ -1,11 +1,11 @@
 """Data-collection policies for Pusher-v5.
 
-Three behaviour sources give the dataset a diversity axis:
+Three behavior sources give the dataset a diversity axis:
   random    i.i.d. uniform torques: broad but unstructured coverage.
   scripted  Jacobian-transpose controller that lines the fingertip up behind
             the object and pushes it toward the goal. Deterministic given the
             start state, so it produces many near-identical trajectories.
-  noisy     The scripted controller with per-episode gain randomisation,
+  noisy     The scripted controller with per-episode gain randomization,
             Gaussian torque noise and epsilon-random actions.
 
 The scripted controller does not need to solve the task; it needs to produce
@@ -40,7 +40,7 @@ class ScriptedPusher:
 
     KP = 20.0           # Cartesian stiffness mapped through J^T
     KD = 0.5            # joint damping
-    STANDOFF = 0.07     # metres behind the object (relative to goal direction)
+    STANDOFF = 0.07     # meters behind the object (relative to goal direction)
     ALIGN_TOL = 0.03    # switch approach -> push when this close to the standoff point
     LOST_TOL = 0.15     # switch push -> approach when the tip loses the object
     PUSH_THROUGH = 0.05 # aim this far past the object centre while pushing

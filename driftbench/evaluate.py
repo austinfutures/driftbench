@@ -9,7 +9,7 @@ seeing the true state again. We then measure:
                 over the dynamic dims. nRMSE = 1 is roughly what you get by
                 always predicting the dataset mean, so it is the default
                 "prediction is no longer useful" threshold.
-  obj_err(h)    Euclidean error of the predicted object position, in metres.
+  obj_err(h)    Euclidean error of the predicted object position, in meters.
   divergence horizon
                 first step where the mean nRMSE curve exceeds the threshold
                 (None = never within H). Also per-rollout, censored at H+1.
@@ -22,7 +22,7 @@ seeing the true state again. We then measure:
                 rollouts that are actually wrong". AUROC for flagging
                 rollouts whose error exceeds the threshold is reported too.
   copy baseline predict s_{t0} for every future step. A world model that does
-                not beat this is not modelling the dynamics.
+                not beat this is not modeling the dynamics.
 """
 from __future__ import annotations
 

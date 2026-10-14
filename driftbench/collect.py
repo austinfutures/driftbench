@@ -70,7 +70,7 @@ SCHEMA = pa.schema([
     ("final_obj_goal_dist", pa.float32()),
 ])
 
-SUCCESS_DIST = 0.05  # metres; only used for reporting how good the scripted policy is
+SUCCESS_DIST = 0.05  # meters; only used for reporting how good the scripted policy is
 
 
 def plan_jobs(split: str, spec: dict, scale: float, rng: np.random.Generator) -> list[dict]:

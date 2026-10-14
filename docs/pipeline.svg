@@ -23,7 +23,7 @@
     <!-- details -->
     <g font-size="12" fill="#4b5563">
       <text x="100" y="92">MuJoCo Pusher-v5</text>
-      <text x="100" y="110">3 behaviour policies</text>
+      <text x="100" y="110">3 behavior policies</text>
       <text x="100" y="128">+ OOD physics</text>
       <text x="290" y="92">Ray Data</text>
       <text x="290" y="110">validate · dedup</text>

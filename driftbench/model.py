@@ -16,7 +16,7 @@ import numpy as np
 import torch
 from torch import nn
 
-INPUT_CLIP = 20.0  # normalised-input clamp so diverged rollouts stay finite
+INPUT_CLIP = 20.0  # normalized-input clamp so diverged rollouts stay finite
 
 
 class EnsembleLinear(nn.Module):
@@ -57,7 +57,7 @@ class EnsembleDynamics(nn.Module):
         self.config = {"ensemble_size": ensemble_size, "hidden": hidden, "n_layers": n_layers}
 
     def forward(self, s: torch.Tensor, a: torch.Tensor):
-        """Returns (next_state, normalised_delta_prediction)."""
+        """Returns (next_state, normalized_delta_prediction)."""
         sn = ((s - self.s_mean) / self.s_std).clamp(-INPUT_CLIP, INPUT_CLIP)
         an = (a - self.a_mean) / self.a_std
         d_norm = self.net(torch.cat([sn, an], dim=-1))
