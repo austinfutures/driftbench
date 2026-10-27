@@ -102,13 +102,3 @@ Device: **CPU** (`cpu`), torch 2.14.1+cpu, 6 threads, batch 256, ensemble 5, 200
 ![in-distribution vs OOD physics](plots/drift_id_vs_ood.png)
 ![does ensemble disagreement predict error?](plots/disagreement_vs_error.png)
 ![object position error in cm](plots/object_error.png)
-
-## Draft resume bullets (auto-filled from the numbers above)
-
-Check each against the tables before using it. If a number goes the 'wrong' way, that is a finding, not a bug to hide.
-
-- Divergence horizons (1-step vs multi-step): >50, >50, >50 vs >50, >50, >50. At least one run never crossed the threshold; report nRMSE@50 instead.
-- 50-step error: 0.536 (1-step loss) vs 0.463 (multi-step loss), 1.16x ratio.
-- Ensemble disagreement vs rollout error: Spearman ρ = 0.88 pooled over horizons, 0.88 within a fixed horizon (the within-horizon number is the one to quote).
-- Ray Data pipeline over 1000 trajectories: rejected 20 corrupt episodes and removed 15.9% near-duplicates (144 exact).
-- Profiled training on CPU; replacing per-sample DataLoader batching cut step time 1.2x.
